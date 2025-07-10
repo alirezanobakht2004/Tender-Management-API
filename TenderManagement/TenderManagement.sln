@@ -11,6 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Domain", "Tender.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Infrastructure", "Tender.Infrastructure\Tender.Infrastructure.csproj", "{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Tests", "Tender.Tests\Tender.Tests.csproj", "{67B93F8E-D636-41F8-BFFF-462603C542B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9E0C0A16-A989-45E7-84CF-E402F8E2FAB3}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +40,10 @@ Global
 		{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B93F8E-D636-41F8-BFFF-462603C542B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B93F8E-D636-41F8-BFFF-462603C542B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B93F8E-D636-41F8-BFFF-462603C542B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B93F8E-D636-41F8-BFFF-462603C542B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

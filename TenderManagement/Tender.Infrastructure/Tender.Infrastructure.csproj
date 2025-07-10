@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Tender.Application\Tender.Application.csproj" />
+    <ProjectReference Include="..\Tender.Domain\Tender.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
