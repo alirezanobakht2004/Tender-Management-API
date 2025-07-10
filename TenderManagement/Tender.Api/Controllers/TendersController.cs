@@ -36,6 +36,14 @@ public sealed class TendersController : ControllerBase
         var dto = await _mediator.Send(new GetTenderDetailsQuery(id), cancellationToken);
         return dto is null ? NotFound() : Ok(dto);
     }
+
+    [HttpGet]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetAll(CancellationToken ct)
+    {
+        var list = await _mediator.Send(new GetTenderListQuery(), ct);
+        return Ok(list);
+    }
 }
 
 

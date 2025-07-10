@@ -18,6 +18,7 @@ using Tender.Application.Auth;
 using Tender.Infrastructure.Auth;
 using Microsoft.AspNetCore.Identity;
 using Tender.Domain.Entities;
+using Tender.Application.Queries.Tenders.List;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -73,6 +74,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
+
+// Program.cs 
+builder.Services.AddTransient<ITenderListQuery, TenderListQuery>();
 
 
 var app = builder.Build();
