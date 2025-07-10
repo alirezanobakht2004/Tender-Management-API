@@ -1,9 +1,6 @@
-﻿using System;
+﻿// Tender.cs
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Tender.Domain.ValueObjects;
 
 namespace Tender.Domain.Entities;
