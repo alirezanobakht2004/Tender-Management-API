@@ -22,10 +22,8 @@ public sealed class CreateTenderCommandValidator : AbstractValidator<CreateTende
             .Must(d => d > DateTime.UtcNow)
             .WithMessage("Deadline must be in the future.");
 
-        RuleFor(c => c.CategoryId)
-            .GreaterThan(0);
+        RuleFor(c => c.CategoryId).NotEmpty();
+        RuleFor(c => c.StatusId).NotEmpty();
 
-        RuleFor(c => c.StatusId)
-            .GreaterThan(0);
     }
 }

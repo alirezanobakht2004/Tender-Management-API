@@ -4,7 +4,8 @@ using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Tender.Application.Commands.Tenders;
-using Tender.Api.Extensions;          
+using Tender.Api.Extensions;
+using Tender.Application.Queries.Tenders;
 
 namespace Tender.Api.Controllers;
 
@@ -26,5 +27,16 @@ public sealed class TendersController : ControllerBase
         var id = await _mediator.Send(enriched, cancellationToken);
         return CreatedAtRoute("GetTenderById", new { id }, null);
     }
+
+
+    [HttpGet("{id}", Name = "GetTenderById")]
+    [AllowAnonymous]
+    public async Task<IActionResult> GetById(Guid id, CancellationToken cancellationToken)
+    {
+        var dto = await _mediator.Send(new GetTenderDetailsQuery(id), cancellationToken);
+        return dto is null ? NotFound() : Ok(dto);
+    }
 }
+
+
 

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MediatR;
 
-namespace Tender.Application.Commands.Tenders;
+namespace Tender.Application.Dtos;
 
-public sealed record CreateTenderCommand(
+public sealed record TenderDetailsDto(
+    Guid Id,
     string Title,
     string Description,
     DateTime DeadlineUtc,
-    Guid CategoryId,
-    Guid StatusId,
-    Guid CreatedByUserId) : IRequest<Guid>;
+    CategoryDto Category,
+    StatusDto Status,
+    IReadOnlyCollection<BidSummaryDto> Bids);

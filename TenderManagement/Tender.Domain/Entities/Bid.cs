@@ -14,13 +14,13 @@ public class Bid : BaseEntity
     public Guid TenderId { get; private set; }
     public Guid VendorId { get; private set; }
     public Money BidAmount { get; private set; } = null!;
-    public int StatusId { get; private set; }
+    public Guid StatusId { get; private set; }
     public string Comments { get; private set; } = default!;
     public DateTime SubmittedAt { get; private set; } = DateTime.UtcNow;
 
     internal Bid() { }
 
-    public Bid(Guid tenderId, Guid vendorId, Money bidAmount, int statusId, string comments)
+    public Bid(Guid tenderId, Guid vendorId, Money bidAmount, Guid statusId, string comments)
     {
         TenderId = tenderId;
         VendorId = vendorId;
@@ -29,5 +29,5 @@ public class Bid : BaseEntity
         Comments = comments;
     }
 
-    public void UpdateStatus(int newStatusId) { StatusId = newStatusId; MarkUpdated(); }
+    public void UpdateStatus(Guid newStatusId) { StatusId = newStatusId; MarkUpdated(); }
 }

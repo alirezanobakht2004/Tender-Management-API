@@ -7,6 +7,10 @@ using FluentValidation;
 using MediatR;
 using Tender.Application;
 using Tender.Application.Pipeline;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using Tender.Infrastructure.ReadModels;
+using Tender.Application.Queries.Tenders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,6 +37,9 @@ builder.Services.AddValidatorsFromAssemblyContaining<AssemblyMarker>();
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>),
                               typeof(ValidationBehaviour<,>));
 
+builder.Services.AddTransient<IDbConnection>(_ =>
+    new SqlConnection(builder.Configuration.GetConnectionString("TenderDb")));
+builder.Services.AddTransient<IGetTenderWithBidsQuery, GetTenderWithBidsQueryObject>();
 
 var app = builder.Build();
 

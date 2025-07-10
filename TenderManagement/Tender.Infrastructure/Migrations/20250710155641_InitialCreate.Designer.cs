@@ -9,10 +9,10 @@ using Tender.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace Tender.Infrastructure.Persistence.Migrations
+namespace Tender.Infrastructure.Migrations
 {
     [DbContext(typeof(TenderDbContext))]
-    [Migration("20250710131043_InitialCreate")]
+    [Migration("20250710155641_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -46,8 +46,8 @@ namespace Tender.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("StatusId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("SubmittedAt")
                         .HasColumnType("datetime2");
@@ -207,8 +207,8 @@ namespace Tender.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -228,8 +228,8 @@ namespace Tender.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("StatusId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Title")
                         .IsRequired()

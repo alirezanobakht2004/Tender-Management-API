@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "q2zKHohGMqU=",
+  "dgSpecHash": "zFLd6KYnjUI=",
   "success": true,
   "projectFilePath": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Api\\Tender.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\alire\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\dapper\\2.1.66\\dapper.2.1.66.nupkg.sha512",
+    "C:\\Users\\alire\\.nuget\\packages\\fluentassertions\\8.4.0\\fluentassertions.8.4.0.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.0.0\\fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
@@ -27,6 +28,7 @@
     "C:\\Users\\alire\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.7\\microsoft.entityframeworkcore.abstractions.9.0.7.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.7\\microsoft.entityframeworkcore.analyzers.9.0.7.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\microsoft.entityframeworkcore.design\\9.0.7\\microsoft.entityframeworkcore.design.9.0.7.nupkg.sha512",
+    "C:\\Users\\alire\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\9.0.7\\microsoft.entityframeworkcore.inmemory.9.0.7.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.7\\microsoft.entityframeworkcore.relational.9.0.7.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\9.0.7\\microsoft.entityframeworkcore.sqlserver.9.0.7.nupkg.sha512",
     "C:\\Users\\alire\\.nuget\\packages\\microsoft.extensions.apidescription.server\\8.0.0\\microsoft.extensions.apidescription.server.8.0.0.nupkg.sha512",

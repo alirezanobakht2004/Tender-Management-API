@@ -10,8 +10,8 @@ public class Tender : BaseEntity
     public string Title { get; private set; } = default!;
     public string Description { get; private set; } = default!;
     public Deadline Deadline { get; private set; } = null!;
-    public int CategoryId { get; private set; }
-    public int StatusId { get; private set; }
+    public Guid CategoryId { get; private set; }
+    public Guid StatusId { get; private set; }
     public Guid CreatedByUserId { get; private set; }
 
     private readonly List<Bid> _bids = new();
@@ -19,7 +19,7 @@ public class Tender : BaseEntity
 
     internal Tender() { }
 
-    public Tender(string title, string description, Deadline deadline, int categoryId, int statusId, Guid createdByUserId)
+    public Tender(string title, string description, Deadline deadline, Guid categoryId, Guid statusId, Guid createdByUserId)
     {
         Title = title;
         Description = description;
@@ -29,7 +29,7 @@ public class Tender : BaseEntity
         CreatedByUserId = createdByUserId;
     }
 
-    public Bid AddBid(Guid vendorId, Money amount, int statusId, string comments)
+    public Bid AddBid(Guid vendorId, Money amount, Guid statusId, string comments)
     {
         var bid = new Bid(Id, vendorId, amount, statusId, comments);
         _bids.Add(bid);

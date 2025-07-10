@@ -67,22 +67,82 @@ public class TenderDbContext : DbContext
                .OwnsOne(t => t.Deadline, d => d.Property(p => p.Value)
                                                .HasColumnName("Deadline"));
 
+        // example constant chosen once for all seeds
+        var stamp = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
         // Category seed
         builder.Entity<Category>().HasData(
-            new { Id = Guid.Parse("e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101"), Name = "Construction", Description = "Civil and structural works" },
-            new { Id = Guid.Parse("c6c2ae11-0b1a-4220-99eb-bc69f2c46d77"), Name = "IT", Description = "Software and hardware" },
-            new { Id = Guid.Parse("54d06027-6965-456b-8b6e-1bc5e1e3c2af"), Name = "Consulting", Description = "Professional services" }
-        );
+            new
+            {
+                Id = Guid.Parse("e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101"),
+                Name = "Construction",
+                Description = "Civil and structural works",
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            },
+            new
+            {
+                Id = Guid.Parse("c6c2ae11-0b1a-4220-99eb-bc69f2c46d77"),
+                Name = "IT",
+                Description = "Software and hardware",
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            },
+            new
+            {
+                Id = Guid.Parse("54d06027-6965-456b-8b6e-1bc5e1e3c2af"),
+                Name = "Consulting",
+                Description = "Professional services",
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            });
 
-        // Status seed
         builder.Entity<Status>().HasData(
-            new { Id = Guid.Parse("a1a3f451-a73b-484e-8fcb-0c21821f4d48"), Name = "Open", Scope = "Tender", SortOrder = 1 },
-            new { Id = Guid.Parse("8b6cc0d4-c1ce-4991-a5fb-84f7ef404ac1"), Name = "Closed", Scope = "Tender", SortOrder = 2 },
-            new { Id = Guid.Parse("41d9b6d9-fd37-4894-a63e-65892a0cfe19"), Name = "Pending", Scope = "Bid", SortOrder = 1 },
-            new { Id = Guid.Parse("d7122c1f-e7e8-4476-a2e2-19a2d906f6af"), Name = "Approved", Scope = "Bid", SortOrder = 2 },
-            new { Id = Guid.Parse("e022521e-ec06-4cf2-83f8-61eb0cd8a0f2"), Name = "Rejected", Scope = "Bid", SortOrder = 3 }
-        );
-
+            new
+            {
+                Id = Guid.Parse("a1a3f451-a73b-484e-8fcb-0c21821f4d48"),
+                Name = "Open",
+                Scope = "Tender",
+                SortOrder = 1,
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            },
+            new
+            {
+                Id = Guid.Parse("8b6cc0d4-c1ce-4991-a5fb-84f7ef404ac1"),
+                Name = "Closed",
+                Scope = "Tender",
+                SortOrder = 2,
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            },
+            new
+            {
+                Id = Guid.Parse("41d9b6d9-fd37-4894-a63e-65892a0cfe19"),
+                Name = "Pending",
+                Scope = "Bid",
+                SortOrder = 1,
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            },
+            new
+            {
+                Id = Guid.Parse("d7122c1f-e7e8-4476-a2e2-19a2d906f6af"),
+                Name = "Approved",
+                Scope = "Bid",
+                SortOrder = 2,
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            },
+            new
+            {
+                Id = Guid.Parse("e022521e-ec06-4cf2-83f8-61eb0cd8a0f2"),
+                Name = "Rejected",
+                Scope = "Bid",
+                SortOrder = 3,
+                CreatedAt = stamp,
+                UpdatedAt = stamp
+            });
 
     }
 }
