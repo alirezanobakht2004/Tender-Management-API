@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Api", "Tender.Api\Tender.Api.csproj", "{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Application", "Tender.Application\Tender.Application.csproj", "{B43737EC-4067-4E3B-8202-F0F6129A6E7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43737EC-4067-4E3B-8202-F0F6129A6E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43737EC-4067-4E3B-8202-F0F6129A6E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43737EC-4067-4E3B-8202-F0F6129A6E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43737EC-4067-4E3B-8202-F0F6129A6E7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
