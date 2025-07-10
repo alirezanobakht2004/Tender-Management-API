@@ -3,16 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|solutionrelative:tender.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\contracts\\repositories\\ivendorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\contracts\\repositories\\ivendorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|solutionrelative:tender.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\contracts\\repositories\\ibidrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\contracts\\repositories\\ibidrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\contracts\\repositories\\itenderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\contracts\\repositories\\itenderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\contracts\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\contracts\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}|Tender.Infrastructure\\Tender.Infrastructure.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.infrastructure\\persistence\\tenderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}|Tender.Infrastructure\\Tender.Infrastructure.csproj|solutionrelative:tender.infrastructure\\persistence\\tenderdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\valueobjects\\deadline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\valueobjects\\deadline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\events\\idomainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\events\\idomainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\tender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,36 +51,24 @@
       "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\status.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\vendor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\bid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\events\\idomainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\events\\idomainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|solutionrelative:tender.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.domain\\valueobjects\\deadline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}|Tender.Domain\\Tender.Domain.csproj|solutionrelative:tender.domain\\valueobjects\\deadline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|solutionrelative:tender.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,17 +78,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Api\\Program.cs",
               "RelativeDocumentMoniker": "Tender.Api\\Program.cs",
               "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Api\\Program.cs",
               "RelativeToolTip": "Tender.Api\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-10T11:15:44.377Z",
               "IsPinned": true,
@@ -80,13 +96,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 16,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Api\\appsettings.json",
               "RelativeDocumentMoniker": "Tender.Api\\appsettings.json",
               "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Api\\appsettings.json",
               "RelativeToolTip": "Tender.Api\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-07-10T11:16:33.563Z",
               "IsPinned": true,
@@ -94,92 +110,98 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TenderDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
-              "RelativeDocumentMoniker": "Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
-              "RelativeToolTip": "Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCQAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "IVendorRepository.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\Repositories\\IVendorRepository.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Contracts\\Repositories\\IVendorRepository.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\Repositories\\IVendorRepository.cs*",
+              "RelativeToolTip": "Tender.Domain\\Contracts\\Repositories\\IVendorRepository.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T11:09:28.326Z",
+              "WhenOpened": "2025-07-10T13:38:39.255Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Deadline.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Deadline.cs",
-              "RelativeDocumentMoniker": "Tender.Domain\\ValueObjects\\Deadline.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Deadline.cs",
-              "RelativeToolTip": "Tender.Domain\\ValueObjects\\Deadline.cs",
+              "DocumentIndex": 1,
+              "Title": "IBidRepository.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\Repositories\\IBidRepository.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Contracts\\Repositories\\IBidRepository.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\Repositories\\IBidRepository.cs*",
+              "RelativeToolTip": "Tender.Domain\\Contracts\\Repositories\\IBidRepository.cs*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:03:07.201Z"
+              "WhenOpened": "2025-07-10T13:38:15.152Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Money.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Money.cs",
-              "RelativeDocumentMoniker": "Tender.Domain\\ValueObjects\\Money.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Money.cs",
-              "RelativeToolTip": "Tender.Domain\\ValueObjects\\Money.cs",
+              "DocumentIndex": 2,
+              "Title": "ITenderRepository.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\Repositories\\ITenderRepository.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Contracts\\Repositories\\ITenderRepository.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\Repositories\\ITenderRepository.cs*",
+              "RelativeToolTip": "Tender.Domain\\Contracts\\Repositories\\ITenderRepository.cs*",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:02:56.468Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BaseEntity.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\BaseEntity.cs",
-              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\BaseEntity.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\BaseEntity.cs",
-              "RelativeToolTip": "Tender.Domain\\Entities\\BaseEntity.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:02:37.221Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Bid.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Bid.cs",
-              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Bid.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Bid.cs",
-              "RelativeToolTip": "Tender.Domain\\Entities\\Bid.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:02:16.956Z"
+              "WhenOpened": "2025-07-10T13:37:37.436Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Contracts\\IUnitOfWork.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Contracts\\IUnitOfWork.cs*",
+              "RelativeToolTip": "Tender.Domain\\Contracts\\IUnitOfWork.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T13:36:50.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "Tender.cs",
               "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Tender.cs",
               "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Tender.cs",
               "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Tender.cs",
               "RelativeToolTip": "Tender.Domain\\Entities\\Tender.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA9wCUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:02:05.559Z"
+              "WhenOpened": "2025-07-10T10:02:05.559Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Status.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Status.cs",
-              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Status.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Status.cs",
-              "RelativeToolTip": "Tender.Domain\\Entities\\Status.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAmwBYAAAABAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "Tender.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAUwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:01:51.886Z"
+              "WhenOpened": "2025-07-10T10:00:37.71Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
+              "Title": "Vendor.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Vendor.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Vendor.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Vendor.cs",
+              "RelativeToolTip": "Tender.Domain\\Entities\\Vendor.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAIwBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T10:01:07.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "IDomainEvent.cs",
               "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Events\\IDomainEvent.cs",
               "RelativeDocumentMoniker": "Tender.Domain\\Events\\IDomainEvent.cs",
@@ -187,11 +209,64 @@
               "RelativeToolTip": "Tender.Domain\\Events\\IDomainEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:23:09.112Z"
+              "WhenOpened": "2025-07-10T10:23:09.112Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Deadline.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Deadline.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\ValueObjects\\Deadline.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Deadline.cs",
+              "RelativeToolTip": "Tender.Domain\\ValueObjects\\Deadline.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T10:03:07.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Money.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Money.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\ValueObjects\\Money.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\ValueObjects\\Money.cs",
+              "RelativeToolTip": "Tender.Domain\\ValueObjects\\Money.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAIwBYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T10:02:56.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TenderDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
+              "RelativeDocumentMoniker": "Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
+              "RelativeToolTip": "Tender.Infrastructure\\Persistence\\TenderDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T11:09:28.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Status.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Status.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Status.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Status.cs",
+              "RelativeToolTip": "Tender.Domain\\Entities\\Status.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-10T10:01:51.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Category.cs",
               "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Category.cs",
@@ -199,31 +274,34 @@
               "RelativeToolTip": "Tender.Domain\\Entities\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:01:39.564Z"
+              "WhenOpened": "2025-07-10T10:01:39.564Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Vendor.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Vendor.cs",
-              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Vendor.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Vendor.cs",
-              "RelativeToolTip": "Tender.Domain\\Entities\\Vendor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "Bid.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Bid.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\Bid.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\Bid.cs",
+              "RelativeToolTip": "Tender.Domain\\Entities\\Bid.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwCAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:01:07.919Z"
+              "WhenOpened": "2025-07-10T10:02:16.956Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\User.cs",
-              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\User.cs",
-              "RelativeToolTip": "Tender.Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAQAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "Tender.Domain\\Entities\\BaseEntity.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Domain\\Entities\\BaseEntity.cs",
+              "RelativeToolTip": "Tender.Domain\\Entities\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAcwBUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-10T10:00:37.71Z"
+              "WhenOpened": "2025-07-10T10:02:37.221Z",
+              "EditorCaption": ""
             }
           ]
         }
