@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Tender.Application\Tender.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
+  </ItemGroup>
+
 </Project>
