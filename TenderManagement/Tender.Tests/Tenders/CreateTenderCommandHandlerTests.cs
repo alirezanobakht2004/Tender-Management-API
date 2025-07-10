@@ -14,7 +14,7 @@ using Tender.Infrastructure.Persistence;
 
 
 
-namespace Tender.Tests;
+namespace Tender.Tests.Tenders;
 
 public sealed class CreateTenderCommandHandlerTests
 {
@@ -43,8 +43,8 @@ public sealed class CreateTenderCommandHandlerTests
             "T",
             "D",
             DateTime.UtcNow.AddDays(2),
-            Guid.NewGuid(),       
-            Guid.NewGuid(),       
+            Guid.NewGuid(),
+            Guid.NewGuid(),
             Guid.NewGuid());
 
         var id = await _handler.Handle(cmd, CancellationToken.None);

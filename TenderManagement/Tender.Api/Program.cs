@@ -11,6 +11,13 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using Tender.Infrastructure.ReadModels;
 using Tender.Application.Queries.Tenders;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Tender.Application.Auth;
+using Tender.Infrastructure.Auth;
+using Microsoft.AspNetCore.Identity;
+using Tender.Domain.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,9 +48,36 @@ builder.Services.AddTransient<IDbConnection>(_ =>
     new SqlConnection(builder.Configuration.GetConnectionString("TenderDb")));
 builder.Services.AddTransient<IGetTenderWithBidsQuery, GetTenderWithBidsQueryObject>();
 
+// Configure the HTTP request pipeline.
+
+var jwtCfgSection = builder.Configuration.GetSection("Jwt");
+builder.Services.Configure<JwtSettings>(jwtCfgSection);
+var jwtCfg = jwtCfgSection.Get<JwtSettings>()!;      
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(opts =>
+    {
+        opts.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidIssuer = jwtCfg.Issuer,
+            ValidAudience = jwtCfg.Audience,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                                    Encoding.UTF8.GetBytes(jwtCfg.Secret)),
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true
+        };
+    });
+
+// Auth helpers
+builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();
+
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+app.UseAuthentication();
 
 app.UseAuthorization();
 

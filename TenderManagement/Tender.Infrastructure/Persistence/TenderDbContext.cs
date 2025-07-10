@@ -69,6 +69,7 @@ public class TenderDbContext : DbContext
 
         // example constant chosen once for all seeds
         var stamp = new DateTime(2024, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        var emptyRowVersion = Array.Empty<byte>();
 
         // Category seed
         builder.Entity<Category>().HasData(
@@ -78,7 +79,8 @@ public class TenderDbContext : DbContext
                 Name = "Construction",
                 Description = "Civil and structural works",
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             },
             new
             {
@@ -86,7 +88,8 @@ public class TenderDbContext : DbContext
                 Name = "IT",
                 Description = "Software and hardware",
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             },
             new
             {
@@ -94,7 +97,8 @@ public class TenderDbContext : DbContext
                 Name = "Consulting",
                 Description = "Professional services",
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             });
 
         builder.Entity<Status>().HasData(
@@ -105,7 +109,8 @@ public class TenderDbContext : DbContext
                 Scope = "Tender",
                 SortOrder = 1,
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             },
             new
             {
@@ -114,7 +119,8 @@ public class TenderDbContext : DbContext
                 Scope = "Tender",
                 SortOrder = 2,
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             },
             new
             {
@@ -123,7 +129,8 @@ public class TenderDbContext : DbContext
                 Scope = "Bid",
                 SortOrder = 1,
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             },
             new
             {
@@ -132,7 +139,8 @@ public class TenderDbContext : DbContext
                 Scope = "Bid",
                 SortOrder = 2,
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             },
             new
             {
@@ -141,7 +149,8 @@ public class TenderDbContext : DbContext
                 Scope = "Bid",
                 SortOrder = 3,
                 CreatedAt = stamp,
-                UpdatedAt = stamp
+                UpdatedAt = stamp,
+                RowVersion = emptyRowVersion
             });
 
     }

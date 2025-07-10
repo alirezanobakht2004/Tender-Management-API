@@ -25,4 +25,7 @@ public class User : BaseEntity
 
     public void Lock() { IsLocked = true; MarkUpdated(); }
     public void Unlock() { IsLocked = false; MarkUpdated(); }
+
+    public void SetPasswordHash(string hash) => PasswordHash = hash;
+
 }

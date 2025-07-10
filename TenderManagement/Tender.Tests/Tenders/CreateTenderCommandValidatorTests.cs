@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Tender.Application.Commands.Tenders;
 
-namespace Tender.Tests;
+namespace Tender.Tests.Tenders;
 
 public sealed class CreateTenderCommandValidatorTests
 {
@@ -25,7 +25,7 @@ public sealed class CreateTenderCommandValidatorTests
             Guid.NewGuid());
 
         var result = _validator.Validate(cmd);
-        Assert.False(result.IsValid);      
+        Assert.False(result.IsValid);
     }
 
     [Fact]
