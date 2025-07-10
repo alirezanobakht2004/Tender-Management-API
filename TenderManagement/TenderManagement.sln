@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Api", "Tender.Api\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Application", "Tender.Application\Tender.Application.csproj", "{B43737EC-4067-4E3B-8202-F0F6129A6E7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Domain", "Tender.Domain\Tender.Domain.csproj", "{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tender.Infrastructure", "Tender.Infrastructure\Tender.Infrastructure.csproj", "{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{B43737EC-4067-4E3B-8202-F0F6129A6E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B43737EC-4067-4E3B-8202-F0F6129A6E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B43737EC-4067-4E3B-8202-F0F6129A6E7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D0EF3C7-7FB2-43C1-931D-F9915718ADF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B189AE-D422-4D8B-9CA8-5578B1D3ECCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
