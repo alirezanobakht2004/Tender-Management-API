@@ -1,5 +1,4 @@
-﻿// Tests/Auth/LoginQueryHandlerTests.cs  ← pure unit
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Tender.Application.Auth;
 using Tender.Application.Auth.Dto;
