@@ -12,7 +12,7 @@ using Tender.Infrastructure.Persistence;
 namespace Tender.Infrastructure.Migrations
 {
     [DbContext(typeof(TenderDbContext))]
-    [Migration("20250710155641_InitialCreate")]
+    [Migration("20250711085448_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -109,20 +109,26 @@ namespace Tender.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Civil and structural works",
-                            Name = "Construction"
+                            Name = "Construction",
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = new Guid("c6c2ae11-0b1a-4220-99eb-bc69f2c46d77"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Software and hardware",
-                            Name = "IT"
+                            Name = "IT",
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = new Guid("54d06027-6965-456b-8b6e-1bc5e1e3c2af"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Description = "Professional services",
-                            Name = "Consulting"
+                            Name = "Consulting",
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 
@@ -167,37 +173,47 @@ namespace Tender.Infrastructure.Migrations
                         new
                         {
                             Id = new Guid("a1a3f451-a73b-484e-8fcb-0c21821f4d48"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Open",
                             Scope = "Tender",
-                            SortOrder = 1
+                            SortOrder = 1,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = new Guid("8b6cc0d4-c1ce-4991-a5fb-84f7ef404ac1"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Closed",
                             Scope = "Tender",
-                            SortOrder = 2
+                            SortOrder = 2,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = new Guid("41d9b6d9-fd37-4894-a63e-65892a0cfe19"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Pending",
                             Scope = "Bid",
-                            SortOrder = 1
+                            SortOrder = 1,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = new Guid("d7122c1f-e7e8-4476-a2e2-19a2d906f6af"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Approved",
                             Scope = "Bid",
-                            SortOrder = 2
+                            SortOrder = 2,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         },
                         new
                         {
                             Id = new Guid("e022521e-ec06-4cf2-83f8-61eb0cd8a0f2"),
+                            CreatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Rejected",
                             Scope = "Bid",
-                            SortOrder = 3
+                            SortOrder = 3,
+                            UpdatedAt = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 

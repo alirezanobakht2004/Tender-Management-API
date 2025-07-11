@@ -132,24 +132,24 @@ namespace Tender.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "Id", "Description", "Name" },
+                columns: new[] { "Id", "CreatedAt", "Description", "Name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("54d06027-6965-456b-8b6e-1bc5e1e3c2af"), "Professional services", "Consulting" },
-                    { new Guid("c6c2ae11-0b1a-4220-99eb-bc69f2c46d77"), "Software and hardware", "IT" },
-                    { new Guid("e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101"), "Civil and structural works", "Construction" }
+                    { new Guid("54d06027-6965-456b-8b6e-1bc5e1e3c2af"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Professional services", "Consulting", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { new Guid("c6c2ae11-0b1a-4220-99eb-bc69f2c46d77"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Software and hardware", "IT", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { new Guid("e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Civil and structural works", "Construction", new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Statuses",
-                columns: new[] { "Id", "Name", "Scope", "SortOrder" },
+                columns: new[] { "Id", "CreatedAt", "Name", "Scope", "SortOrder", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { new Guid("41d9b6d9-fd37-4894-a63e-65892a0cfe19"), "Pending", "Bid", 1 },
-                    { new Guid("8b6cc0d4-c1ce-4991-a5fb-84f7ef404ac1"), "Closed", "Tender", 2 },
-                    { new Guid("a1a3f451-a73b-484e-8fcb-0c21821f4d48"), "Open", "Tender", 1 },
-                    { new Guid("d7122c1f-e7e8-4476-a2e2-19a2d906f6af"), "Approved", "Bid", 2 },
-                    { new Guid("e022521e-ec06-4cf2-83f8-61eb0cd8a0f2"), "Rejected", "Bid", 3 }
+                    { new Guid("41d9b6d9-fd37-4894-a63e-65892a0cfe19"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Pending", "Bid", 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { new Guid("8b6cc0d4-c1ce-4991-a5fb-84f7ef404ac1"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Closed", "Tender", 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { new Guid("a1a3f451-a73b-484e-8fcb-0c21821f4d48"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Open", "Tender", 1, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { new Guid("d7122c1f-e7e8-4476-a2e2-19a2d906f6af"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Approved", "Bid", 2, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) },
+                    { new Guid("e022521e-ec06-4cf2-83f8-61eb0cd8a0f2"), new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc), "Rejected", "Bid", 3, new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc) }
                 });
 
             migrationBuilder.CreateIndex(
