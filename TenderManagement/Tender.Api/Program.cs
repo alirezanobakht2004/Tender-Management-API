@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Identity;
 using Tender.Domain.Entities;
 using Tender.Application.Queries.Tenders.List;
 using Tender.Application.Queries.Lookups;
+using Tender.Application.Queries.Vendors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -81,6 +82,9 @@ builder.Services.AddTransient<ITenderListQuery, TenderListQuery>();
 builder.Services.AddTransient<ICategoryListQuery, CategoryListQuery>();
 builder.Services.AddTransient<IStatusListQuery, StatusListQuery>();
 
+builder.Services.AddTransient<IVendorListQuery, VendorListQuery>();
+
+builder.Services.AddTransient<IVendorDetailsQuery, VendorDetailsQuery>();
 
 
 var app = builder.Build();
