@@ -22,8 +22,9 @@ public sealed class DeleteTenderCommandHandler : IRequestHandler<DeleteTenderCom
 
     public async Task Handle(DeleteTenderCommand cmd, CancellationToken ct)
     {
-        var tender = await _repo.GetByIdAsync(cmd.Id, ct)
-                     ?? throw new KeyNotFoundException("Tender not found");
+        var tender = await _repo.GetByIdAsync(cmd.Id, ct);
+        if (tender is null)
+            return; 
 
         await _repo.DeleteAsync(tender, ct);
         await _uow.SaveChangesAsync(ct);

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tender.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+885a38464d1fdb40c2a27f166559696748a9ab17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+23de32d98272c61fac6678d3c71d78cf5e4f3d77")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tender.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tender.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

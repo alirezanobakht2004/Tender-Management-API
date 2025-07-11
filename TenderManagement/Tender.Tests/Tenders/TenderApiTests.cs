@@ -143,6 +143,167 @@ public sealed class TenderApiTests : IClassFixture<WebApplicationFactory<Program
         }
     }
 
+    [Fact]
+    public async Task Cannot_Create_Tender_If_Not_Admin()
+    {
+        // Register as Vendor
+        var vendorEmail = $"vendor+{Guid.NewGuid()}@test.com";
+        var vendorPwd = "Vendor123!";
+        var reg = await _client.PostAsJsonAsync("/api/auth/register", new
+        {
+            email = vendorEmail,
+            password = vendorPwd,
+            role = "Vendor"
+        });
+        reg.StatusCode.Should().Be(HttpStatusCode.Created);
+        var login = await _client.PostAsJsonAsync("/api/auth/login", new
+        {
+            email = vendorEmail,
+            password = vendorPwd
+        });
+        var token = (await login.Content.ReadFromJsonAsync<LoginResult>())!.Token;
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Try to create tender as vendor
+        var catId = await GetCategoryId();
+        var statusId = await GetStatusId();
+        var resp = await _client.PostAsJsonAsync("/api/tenders", new
+        {
+            title = "NotAllowed",
+            description = "Should fail",
+            deadlineUtc = DateTime.UtcNow.AddDays(2),
+            categoryId = catId,
+            statusId = statusId
+        });
+        resp.StatusCode.Should().Be(HttpStatusCode.Forbidden);
+    }
+
+    [Fact]
+    public async Task Cannot_Create_Tender_With_Missing_Fields()
+    {
+        // Register & login as Admin
+        var email = $"admin+{Guid.NewGuid()}@test.com";
+        var pwd = "ApiTest123!";
+        await _client.PostAsJsonAsync("/api/auth/register", new
+        {
+            email,
+            password = pwd,
+            role = "Admin"
+        });
+        var login = await _client.PostAsJsonAsync("/api/auth/login", new
+        {
+            email,
+            password = pwd
+        });
+        var token = (await login.Content.ReadFromJsonAsync<LoginResult>())!.Token;
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Missing title
+        var catId = await GetCategoryId();
+        var statusId = await GetStatusId();
+        var resp = await _client.PostAsJsonAsync("/api/tenders", new
+        {
+            description = "Missing title",
+            deadlineUtc = DateTime.UtcNow.AddDays(2),
+            categoryId = catId,
+            statusId = statusId
+        });
+        resp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Fact]
+    public async Task Cannot_Create_Tender_With_Invalid_Deadline()
+    {
+        // Register & login as Admin
+        var email = $"admin+{Guid.NewGuid()}@test.com";
+        var pwd = "ApiTest123!";
+        await _client.PostAsJsonAsync("/api/auth/register", new
+        {
+            email,
+            password = pwd,
+            role = "Admin"
+        });
+        var login = await _client.PostAsJsonAsync("/api/auth/login", new
+        {
+            email,
+            password = pwd
+        });
+        var token = (await login.Content.ReadFromJsonAsync<LoginResult>())!.Token;
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Deadline in the past
+        var catId = await GetCategoryId();
+        var statusId = await GetStatusId();
+        var resp = await _client.PostAsJsonAsync("/api/tenders", new
+        {
+            title = "Bad deadline",
+            description = "Deadline in the past",
+            deadlineUtc = DateTime.UtcNow.AddDays(-5),
+            categoryId = catId,
+            statusId = statusId
+        });
+        resp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Fact]
+    public async Task GetTender_Returns_404_For_Unknown_Id()
+    {
+        var email = $"admin+{Guid.NewGuid()}@test.com";
+        var pwd = "ApiTest123!";
+        await _client.PostAsJsonAsync("/api/auth/register", new
+        {
+            email,
+            password = pwd,
+            role = "Admin"
+        });
+        var login = await _client.PostAsJsonAsync("/api/auth/login", new
+        {
+            email,
+            password = pwd
+        });
+        var token = (await login.Content.ReadFromJsonAsync<LoginResult>())!.Token;
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        var resp = await _client.GetAsync($"/api/tenders/{Guid.NewGuid()}");
+        resp.StatusCode.Should().Be(HttpStatusCode.NotFound);
+    }
+
+    [Fact]
+    public async Task Cannot_Create_Tender_With_Invalid_CategoryId()
+    {
+        var email = $"admin+{Guid.NewGuid()}@test.com";
+        var pwd = "ApiTest123!";
+        await _client.PostAsJsonAsync("/api/auth/register", new
+        {
+            email,
+            password = pwd,
+            role = "Admin"
+        });
+        var login = await _client.PostAsJsonAsync("/api/auth/login", new
+        {
+            email,
+            password = pwd
+        });
+        var token = (await login.Content.ReadFromJsonAsync<LoginResult>())!.Token;
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        var statusId = await GetStatusId();
+        var resp = await _client.PostAsJsonAsync("/api/tenders", new
+        {
+            title = "Bad category",
+            description = "CategoryId is wrong",
+            deadlineUtc = DateTime.UtcNow.AddDays(2),
+            categoryId = Guid.NewGuid(),
+            statusId = statusId
+        });
+        resp.StatusCode.Should().BeOneOf(HttpStatusCode.BadRequest, HttpStatusCode.NotFound);
+    }
+
 
     // Helper to get any category/status id from lookup API
     private async Task<Guid> GetCategoryId()

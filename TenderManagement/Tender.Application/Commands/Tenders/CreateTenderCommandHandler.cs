@@ -1,32 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 using MediatR;
+using Tender.Application.Commands.Tenders;
 using Tender.Domain.Contracts;
 using Tender.Domain.Contracts.Repositories;
 using Tender.Domain.ValueObjects;
-using TenderEntity = Tender.Domain.Entities.Tender;
-
-namespace Tender.Application.Commands.Tenders;
 
 public sealed class CreateTenderCommandHandler : IRequestHandler<CreateTenderCommand, Guid>
 {
     private readonly ITenderRepository _tenderRepository;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly ICategoryRepository _categoryRepository;
+    private readonly IStatusRepository _statusRepository;
 
     public CreateTenderCommandHandler(
         ITenderRepository tenderRepository,
-        IUnitOfWork unitOfWork)
+        IUnitOfWork unitOfWork,
+        ICategoryRepository categoryRepository,
+        IStatusRepository statusRepository)
     {
         _tenderRepository = tenderRepository;
         _unitOfWork = unitOfWork;
+        _categoryRepository = categoryRepository;
+        _statusRepository = statusRepository;
     }
 
     public async Task<Guid> Handle(CreateTenderCommand request, CancellationToken cancellationToken)
     {
-        var tender = new TenderEntity(
+        // Ensure Category exists
+        var categoryExists = await _categoryRepository.ExistsAsync(request.CategoryId, cancellationToken);
+        if (!categoryExists)
+            throw new ValidationException("CategoryId does not exist");
+
+        // Ensure Status exists
+        var statusExists = await _statusRepository.ExistsAsync(request.StatusId, cancellationToken);
+        if (!statusExists)
+            throw new ValidationException("StatusId does not exist");
+
+        var tender = new Tender.Domain.Entities.Tender(
             request.Title,
             request.Description,
             Deadline.From(request.DeadlineUtc),

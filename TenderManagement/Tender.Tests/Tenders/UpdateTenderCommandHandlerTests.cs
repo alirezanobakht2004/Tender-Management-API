@@ -6,6 +6,9 @@ using Tender.Infrastructure.Persistence;
 using Tender.Infrastructure.Persistence.Repositories;
 using Tender.Tests.Util;
 using Xunit;
+using NSubstitute;
+using System.Threading.Tasks;
+using System;
 
 public sealed class UpdateTenderCommandHandlerTests
 {
@@ -22,7 +25,16 @@ public sealed class UpdateTenderCommandHandlerTests
 
         ITenderRepository repo = new TenderRepository(db);
         IUnitOfWork uow = new UnitOfWork(db);
-        var handler = new UpdateTenderCommandHandler(repo, uow);
+
+        // --- Add these mocks ---
+        var categoryRepo = Substitute.For<ICategoryRepository>();
+        var statusRepo = Substitute.For<IStatusRepository>();
+        categoryRepo.ExistsAsync(Arg.Any<Guid>(), Arg.Any<System.Threading.CancellationToken>())
+            .Returns(true);
+        statusRepo.ExistsAsync(Arg.Any<Guid>(), Arg.Any<System.Threading.CancellationToken>())
+            .Returns(true);
+
+        var handler = new UpdateTenderCommandHandler(repo, uow, categoryRepo, statusRepo);
 
         var cmd = new UpdateTenderCommand(
             tender.Id, "New", "NewDesc",

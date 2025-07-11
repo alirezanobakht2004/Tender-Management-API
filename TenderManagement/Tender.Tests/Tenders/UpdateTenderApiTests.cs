@@ -51,12 +51,11 @@ public sealed class UpdateTenderApiTests : IClassFixture<WebApplicationFactory<P
     [Fact]
     public async Task Admin_Can_Update_Tender()
     {
-        // Setup: Register/login admin and get token
         var (token, catId, statusId) = await RegisterAndLoginAdminAsync();
         _client.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-        // 1. Create tender
+        // Create tender
         var createResp = await _client.PostAsJsonAsync("/api/tenders", new
         {
             title = "Initial Title",
@@ -68,7 +67,7 @@ public sealed class UpdateTenderApiTests : IClassFixture<WebApplicationFactory<P
         createResp.StatusCode.Should().Be(HttpStatusCode.Created);
         var tid = (await createResp.Content.ReadFromJsonAsync<CreateResult>())!.Id;
 
-        // 2. Update tender
+        // Update tender
         var updateResp = await _client.PutAsJsonAsync($"/api/tenders/{tid}", new
         {
             id = tid,
@@ -80,7 +79,7 @@ public sealed class UpdateTenderApiTests : IClassFixture<WebApplicationFactory<P
         });
         updateResp.StatusCode.Should().Be(HttpStatusCode.NoContent);
 
-        // 3. Verify updated
+        // Verify updated
         var getResp = await _client.GetAsync($"/api/tenders/{tid}");
         getResp.StatusCode.Should().Be(HttpStatusCode.OK);
         var dto = await getResp.Content.ReadFromJsonAsync<TenderDetailsDto>();
@@ -92,7 +91,7 @@ public sealed class UpdateTenderApiTests : IClassFixture<WebApplicationFactory<P
     [Fact]
     public async Task Vendor_Cannot_Update_Tender()
     {
-        // Setup: Register/login vendor
+        // Register vendor
         var email = $"vendor+{Guid.NewGuid()}@test.com";
         var pwd = "Vendor123!";
         await _client.PostAsJsonAsync("/api/auth/register", new
@@ -110,7 +109,7 @@ public sealed class UpdateTenderApiTests : IClassFixture<WebApplicationFactory<P
         _client.DefaultRequestHeaders.Authorization =
             new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", res!.Token);
 
-        // Try update (pick any GUID, should not authorize)
+        // Try update (should be forbidden)
         var updateResp = await _client.PutAsJsonAsync($"/api/tenders/{Guid.NewGuid()}", new
         {
             id = Guid.NewGuid(),
@@ -123,6 +122,122 @@ public sealed class UpdateTenderApiTests : IClassFixture<WebApplicationFactory<P
         updateResp.StatusCode.Should().Be(HttpStatusCode.Forbidden);
     }
 
+    [Fact]
+    public async Task Update_With_Invalid_CategoryId_Should_Be_BadRequest()
+    {
+        var (token, catId, statusId) = await RegisterAndLoginAdminAsync();
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Create tender
+        var createResp = await _client.PostAsJsonAsync("/api/tenders", new
+        {
+            title = "Test",
+            description = "Desc",
+            deadlineUtc = DateTime.UtcNow.AddDays(2),
+            categoryId = catId,
+            statusId = statusId
+        });
+        createResp.StatusCode.Should().Be(HttpStatusCode.Created);
+        var tid = (await createResp.Content.ReadFromJsonAsync<CreateResult>())!.Id;
+
+        // Update with invalid category
+        var updateResp = await _client.PutAsJsonAsync($"/api/tenders/{tid}", new
+        {
+            id = tid,
+            title = "X",
+            description = "Y",
+            deadlineUtc = DateTime.UtcNow.AddDays(5),
+            categoryId = Guid.NewGuid(), // Invalid
+            statusId = statusId
+        });
+        updateResp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Fact]
+    public async Task Update_With_Invalid_StatusId_Should_Be_BadRequest()
+    {
+        var (token, catId, statusId) = await RegisterAndLoginAdminAsync();
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Create tender
+        var createResp = await _client.PostAsJsonAsync("/api/tenders", new
+        {
+            title = "Test",
+            description = "Desc",
+            deadlineUtc = DateTime.UtcNow.AddDays(2),
+            categoryId = catId,
+            statusId = statusId
+        });
+        createResp.StatusCode.Should().Be(HttpStatusCode.Created);
+        var tid = (await createResp.Content.ReadFromJsonAsync<CreateResult>())!.Id;
+
+        // Update with invalid status
+        var updateResp = await _client.PutAsJsonAsync($"/api/tenders/{tid}", new
+        {
+            id = tid,
+            title = "X",
+            description = "Y",
+            deadlineUtc = DateTime.UtcNow.AddDays(5),
+            categoryId = catId,
+            statusId = Guid.NewGuid() // Invalid
+        });
+        updateResp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    [Fact]
+    public async Task Update_Nonexistent_Tender_Should_Be_NotFound()
+    {
+        var (token, catId, statusId) = await RegisterAndLoginAdminAsync();
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        var updateResp = await _client.PutAsJsonAsync($"/api/tenders/{Guid.NewGuid()}", new
+        {
+            id = Guid.NewGuid(),
+            title = "Doesn't Exist",
+            description = "Nope",
+            deadlineUtc = DateTime.UtcNow.AddDays(5),
+            categoryId = catId,
+            statusId = statusId
+        });
+        updateResp.StatusCode.Should().Be(HttpStatusCode.NotFound);
+    }
+
+    [Fact]
+    public async Task Update_With_Invalid_Fields_Should_Be_BadRequest()
+    {
+        var (token, catId, statusId) = await RegisterAndLoginAdminAsync();
+        _client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Create tender
+        var createResp = await _client.PostAsJsonAsync("/api/tenders", new
+        {
+            title = "Test",
+            description = "Desc",
+            deadlineUtc = DateTime.UtcNow.AddDays(2),
+            categoryId = catId,
+            statusId = statusId
+        });
+        createResp.StatusCode.Should().Be(HttpStatusCode.Created);
+        var tid = (await createResp.Content.ReadFromJsonAsync<CreateResult>())!.Id;
+
+        // Missing required field: title
+        var updateResp = await _client.PutAsJsonAsync($"/api/tenders/{tid}", new
+        {
+            id = tid,
+            // title missing
+            description = "No Title",
+            deadlineUtc = DateTime.UtcNow.AddDays(2),
+            categoryId = catId,
+            statusId = statusId
+        });
+        updateResp.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+    }
+
+    // DTOs
     public class CreateResult { public Guid Id { get; set; } }
     public class LoginResult { public string Token { get; set; } = ""; }
     public class LookupDto { public Guid Id { get; set; } public string Name { get; set; } = ""; }

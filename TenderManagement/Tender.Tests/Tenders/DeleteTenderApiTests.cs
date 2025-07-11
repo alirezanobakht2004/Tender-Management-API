@@ -15,7 +15,6 @@ public sealed class DeleteTenderApiTests : IClassFixture<WebApplicationFactory<P
 
     private async Task<(string Token, Guid CategoryId, Guid StatusId, Guid TenderId)> CreateTenderAsAdmin()
     {
-        // Register and login as Admin
         var email = $"admin+{Guid.NewGuid()}@test.com";
         var pwd = "ApiTest123!";
         await _client.PostAsJsonAsync("/api/auth/register", new { email, password = pwd, role = "Admin" });
@@ -23,11 +22,9 @@ public sealed class DeleteTenderApiTests : IClassFixture<WebApplicationFactory<P
         var login = await loginResp.Content.ReadFromJsonAsync<LoginResult>();
         _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", login!.Token);
 
-        // Lookup category and status
         var categoryId = (await (await _client.GetAsync("/api/categories")).Content.ReadFromJsonAsync<List<LookupDto>>())!.First().Id;
         var statusId = (await (await _client.GetAsync("/api/statuses")).Content.ReadFromJsonAsync<List<LookupDto>>())!.First().Id;
 
-        // Create Tender
         var resp = await _client.PostAsJsonAsync("/api/tenders", new
         {
             title = $"Tender {Guid.NewGuid()}",
@@ -72,6 +69,11 @@ public sealed class DeleteTenderApiTests : IClassFixture<WebApplicationFactory<P
         // Attempt to delete as Vendor
         var del = await _client.DeleteAsync($"/api/tenders/{tenderId}");
         del.StatusCode.Should().Be(HttpStatusCode.Forbidden);
+
+        // Ensure resource is not deleted
+        _client.DefaultRequestHeaders.Authorization = null;
+        var get = await _client.GetAsync($"/api/tenders/{tenderId}");
+        get.StatusCode.Should().Be(HttpStatusCode.OK);
     }
 
     [Fact]
@@ -85,10 +87,35 @@ public sealed class DeleteTenderApiTests : IClassFixture<WebApplicationFactory<P
         // Attempt delete without token
         var del = await _client.DeleteAsync($"/api/tenders/{tenderId}");
         del.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
+
+        // Ensure resource is not deleted
+        var get = await _client.GetAsync($"/api/tenders/{tenderId}");
+        get.StatusCode.Should().Be(HttpStatusCode.OK);
+    }
+
+    [Fact]
+    public async Task Delete_Nonexistent_Tender_Returns_NoContent()
+    {
+        var (token, _, _, _) = await CreateTenderAsAdmin();
+        _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Delete random GUID (idempotent/no-content)
+        var del = await _client.DeleteAsync($"/api/tenders/{Guid.NewGuid()}");
+        del.StatusCode.Should().Be(HttpStatusCode.NoContent);
+    }
+
+    [Fact]
+    public async Task Delete_Invalid_Id_Returns_BadRequest()
+    {
+        var (token, _, _, _) = await CreateTenderAsAdmin();
+        _client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+        // Malformed GUID
+        var del = await _client.DeleteAsync($"/api/tenders/not-a-guid");
+        del.StatusCode.Should().Be(HttpStatusCode.BadRequest);
     }
 
     public class CreateResult { public Guid Id { get; set; } }
     public class LoginResult { public string Token { get; set; } = ""; }
     public class LookupDto { public Guid Id { get; set; } public string Name { get; set; } = ""; }
 }
-

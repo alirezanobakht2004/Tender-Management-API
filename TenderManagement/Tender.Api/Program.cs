@@ -77,8 +77,13 @@ builder.Services.AddTransient<IVendorListQuery, VendorListQuery>();
 
 builder.Services.AddTransient<IVendorDetailsQuery, VendorDetailsQuery>();
 
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IStatusRepository, StatusRepository>();
+
+
 
 var app = builder.Build();
+
 
 app.UseAuthentication();
 
