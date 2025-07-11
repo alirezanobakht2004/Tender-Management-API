@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{67B93F8E-D636-41F8-BFFF-462603C542B4}|Tender.Tests\\Tender.Tests.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.tests\\tenders\\updatetenderapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{67B93F8E-D636-41F8-BFFF-462603C542B4}|Tender.Tests\\Tender.Tests.csproj|solutionrelative:tender.tests\\tenders\\updatetenderapitests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|c:\\users\\alire\\onedrive\\desktop\\tender-management-api\\tendermanagement\\tender.api\\controllers\\tenderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B3A74E0A-EC69-42C2-8CD0-D76417A75B19}|Tender.Api\\Tender.Api.csproj|solutionrelative:tender.api\\controllers\\tenderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UpdateTenderApiTests.cs",
+              "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Tests\\Tenders\\UpdateTenderApiTests.cs",
+              "RelativeDocumentMoniker": "Tender.Tests\\Tenders\\UpdateTenderApiTests.cs",
+              "ToolTip": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Tests\\Tenders\\UpdateTenderApiTests.cs",
+              "RelativeToolTip": "Tender.Tests\\Tenders\\UpdateTenderApiTests.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAgwJYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-11T17:58:59.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TendersController.cs",
               "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Api\\Controllers\\TendersController.cs",
               "RelativeDocumentMoniker": "Tender.Api\\Controllers\\TendersController.cs",
@@ -35,7 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CreateTenderApiTests.cs",
               "DocumentMoniker": "C:\\Users\\alire\\OneDrive\\Desktop\\Tender-Management-API\\TenderManagement\\Tender.Tests\\Tenders\\CreateTenderApiTests.cs",
               "RelativeDocumentMoniker": "Tender.Tests\\Tenders\\CreateTenderApiTests.cs",
