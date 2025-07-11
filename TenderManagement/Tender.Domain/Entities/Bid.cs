@@ -30,4 +30,14 @@ public class Bid : BaseEntity
     }
 
     public void UpdateStatus(Guid newStatusId) { StatusId = newStatusId; MarkUpdated(); }
+
+    public void SetStatus(Guid statusId)
+    {
+        if (statusId == Guid.Empty)
+            throw new ArgumentException("StatusId cannot be empty", nameof(statusId));
+
+        StatusId = statusId;
+        Touch();          // ← bumps UpdatedAt via the protected helper
+    }
+
 }
