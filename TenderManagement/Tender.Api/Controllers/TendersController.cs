@@ -25,7 +25,7 @@ public sealed class TendersController : ControllerBase
         // Enrich command with user id from JWT
         var enriched = command with { CreatedByUserId = User.GetUserId() };
         var id = await _mediator.Send(enriched, cancellationToken);
-        return CreatedAtRoute("GetTenderById", new { id }, null);
+        return CreatedAtRoute("GetTenderById", new { id }, new { id });
     }
 
 
