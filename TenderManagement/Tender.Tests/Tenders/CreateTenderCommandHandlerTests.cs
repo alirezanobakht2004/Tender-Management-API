@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Tender.Application.Commands.Tenders;
+﻿using Tender.Application.Commands.Tenders;
 using Tender.Domain.Contracts;
 using Tender.Domain.Contracts.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Tender.Infrastructure.Persistence.Repositories;
 using Tender.Infrastructure.Persistence;
-
-
 
 
 namespace Tender.Tests.Tenders;

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Tender.Application.Commands.Tenders;
 using Tender.Domain.Contracts;
 using Tender.Domain.Contracts.Repositories;

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Tender.Application.Queries.Tenders;
+﻿using Tender.Application.Queries.Tenders;
 using Tender.Application.Queries.Tenders.List;
 using Xunit;
 using FluentAssertions;
