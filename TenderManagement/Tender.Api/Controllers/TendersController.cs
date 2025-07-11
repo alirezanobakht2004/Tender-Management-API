@@ -44,6 +44,17 @@ public sealed class TendersController : ControllerBase
         var list = await _mediator.Send(new GetTenderListQuery(), ct);
         return Ok(list);
     }
+
+    [HttpPut("{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Update(Guid id,
+                                        [FromBody] UpdateTenderCommand body,
+                                        CancellationToken ct)
+    {
+        if (id != body.Id) return BadRequest("Id mismatch");
+        await _mediator.Send(body, ct);
+        return NoContent();
+    }
 }
 
 

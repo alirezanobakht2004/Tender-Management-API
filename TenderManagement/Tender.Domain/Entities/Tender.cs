@@ -35,4 +35,17 @@ public class Tender : BaseEntity
         _bids.Add(bid);
         return bid;
     }
+
+    // Tender.Domain/Entities/Tender.cs  (add method)
+    public void Update(string title, string description, Deadline deadline,
+                       Guid categoryId, Guid statusId)
+    {
+        Title = title;
+        Description = description;
+        Deadline = deadline;
+        CategoryId = categoryId;
+        StatusId = statusId;
+        MarkUpdated();
+    }
+
 }
