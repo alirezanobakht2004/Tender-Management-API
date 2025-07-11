@@ -55,6 +55,15 @@ public sealed class TendersController : ControllerBase
         await _mediator.Send(body, ct);
         return NoContent();
     }
+
+    [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Delete(Guid id, CancellationToken ct)
+    {
+        await _mediator.Send(new DeleteTenderCommand(id), ct);
+        return NoContent();
+    }
+
 }
 
 

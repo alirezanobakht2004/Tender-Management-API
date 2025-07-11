@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tender.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d32d73836a75b6e85f3fbaea701a81725b91880")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1e5bc72947bf95828772b211387bbafe1519085")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tender.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tender.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
