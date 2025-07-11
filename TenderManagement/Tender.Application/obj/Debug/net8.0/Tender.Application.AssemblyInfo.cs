@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tender.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd79d6b643a77368abb25c58773faec47ea2a618")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcbb6b0ff664d9062828e63aba2e177209444360")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tender.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tender.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
