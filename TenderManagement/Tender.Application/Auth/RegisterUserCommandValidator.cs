@@ -14,7 +14,7 @@ public sealed class RegisterUserCommandValidator : AbstractValidator<RegisterUse
     public RegisterUserCommandValidator()
     {
         RuleFor(x => x.Email).NotEmpty().EmailAddress();
-        RuleFor(x => x.Password).MinimumLength(6);
+        RuleFor(x => x.Password).MinimumLength(8);
         RuleFor(x => x.Role).NotEmpty().Must(r => r is "Admin" or "Vendor");
     }
 }

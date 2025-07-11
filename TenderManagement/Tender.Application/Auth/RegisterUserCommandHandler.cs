@@ -30,6 +30,9 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
 
     public async Task<Guid> Handle(RegisterUserCommand req, CancellationToken ct)
     {
+        if (await _users.ExistsByEmailAsync(req.Email, ct))
+            throw new DuplicateEmailException(req.Email);
+
         var user = new User(req.Email, string.Empty, req.Role);
         user.SetPasswordHash(_hasher.HashPassword(user, req.Password));
 

@@ -23,4 +23,9 @@ public sealed class BidRepository : IBidRepository
         _db.Bids.Remove(entity);
         return Task.CompletedTask;
     }
+    public Task<Bid?> GetByTenderAndVendorAsync(Guid tenderId,
+                                            Guid vendorId,
+                                            CancellationToken ct = default) =>
+    _db.Bids.FirstOrDefaultAsync(b =>
+            b.TenderId == tenderId && b.VendorId == vendorId, ct);
 }

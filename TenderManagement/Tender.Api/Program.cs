@@ -24,21 +24,15 @@ using Tender.Application.Queries.Vendors;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<TenderDbContext>(opts =>
     opts.UseSqlServer(builder.Configuration.GetConnectionString("TenderDb")));
 
-// Program.cs  (add these lines after AddDbContext, before Build)
-
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<ITenderRepository, TenderRepository>();
 builder.Services.AddScoped<IBidRepository, BidRepository>();
 builder.Services.AddScoped<IVendorRepository, VendorRepository>();
-
-// Tender.Api/Program.cs  (relevant section only)
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblyContaining<AssemblyMarker>());
@@ -50,8 +44,6 @@ builder.Services.AddTransient(typeof(IPipelineBehavior<,>),
 builder.Services.AddTransient<IDbConnection>(_ =>
     new SqlConnection(builder.Configuration.GetConnectionString("TenderDb")));
 builder.Services.AddTransient<IGetTenderWithBidsQuery, GetTenderWithBidsQueryObject>();
-
-// Configure the HTTP request pipeline.
 
 var jwtCfgSection = builder.Configuration.GetSection("Jwt");
 builder.Services.Configure<JwtSettings>(jwtCfgSection);
@@ -72,7 +64,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// Auth helpers
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddSingleton<IPasswordHasher<User>, PasswordHasher<User>>();

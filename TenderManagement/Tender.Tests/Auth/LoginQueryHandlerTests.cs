@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿// Tests/Auth/LoginQueryHandlerTests.cs  ← pure unit
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Tender.Application.Auth;
 using Tender.Application.Auth.Dto;
@@ -15,12 +16,12 @@ public sealed class LoginQueryHandlerTests
     [Fact]
     public async Task Returns_token_for_valid_credentials()
     {
-        using var db = InMemoryDbFactory.Create();
+        await using var db = InMemoryDbFactory.Create();
         var hasher = new PasswordHasher<User>();
         var user = new User("valid@demo.io", string.Empty, "Admin");
         user.SetPasswordHash(hasher.HashPassword(user, "Secret1!"));
         db.Users.Add(user);
-        db.SaveChanges();
+        await db.SaveChangesAsync();
 
         var repo = new UserRepository(db);
         var tokenSvc = new StubJwtTokenService();

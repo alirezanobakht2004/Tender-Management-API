@@ -9,4 +9,6 @@ public interface IUserRepository
 {
     Task AddAsync(User entity, CancellationToken ct = default);
     Task<User?> GetByEmailAsync(string email, CancellationToken ct = default);
+    Task<bool> ExistsByEmailAsync(string email, CancellationToken ct = default);
+
 }

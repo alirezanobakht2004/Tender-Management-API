@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tender.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e35b97556a35ec3c42f2dd51333ce13233510500")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef3c1c88437da9b55f530622902459bc00deaa06")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tender.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tender.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

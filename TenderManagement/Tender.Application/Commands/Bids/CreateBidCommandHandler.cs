@@ -29,23 +29,27 @@ public sealed class CreateBidCommandHandler : IRequestHandler<CreateBidCommand, 
 
     public async Task<Guid> Handle(CreateBidCommand cmd, CancellationToken ct)
     {
-        // 1. Load tender (tracked by THIS DbContext)
         var tender = await _tenders.GetByIdAsync(cmd.TenderId, ct)
                      ?? throw new KeyNotFoundException("Tender not found");
 
-        // 2. Compose the aggregate-root operation
+        var existing = await _bids.GetByTenderAndVendorAsync(
+                            cmd.TenderId, cmd.VendorId, ct);
+
+        if (existing is not null)
+        {
+            existing.Revise(Money.From(cmd.BidAmount), cmd.Comments);
+            await _uow.SaveChangesAsync(ct);
+            return existing.Id;
+        }
+
         var bid = tender.AddBid(
             cmd.VendorId,
             Money.From(cmd.BidAmount),
-            _pendingStatusId,          // “Pending”
+            _pendingStatusId,
             cmd.Comments);
 
-        await _bids.AddAsync(bid, ct);   
-
-        // 4. Commit once
+        await _bids.AddAsync(bid, ct);
         await _uow.SaveChangesAsync(ct);
-
         return bid.Id;
     }
-
 }

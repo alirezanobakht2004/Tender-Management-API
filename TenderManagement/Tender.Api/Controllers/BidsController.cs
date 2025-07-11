@@ -22,6 +22,7 @@ public sealed class BidsController : ControllerBase
         return Created($"/api/bids/{id}", new { id });
     }
 
+
     [Authorize(Roles = "Admin")]
     [HttpPut("{id:guid}/status")]
     public async Task<IActionResult> UpdateStatus(

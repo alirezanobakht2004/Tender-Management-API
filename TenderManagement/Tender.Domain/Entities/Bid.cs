@@ -29,6 +29,23 @@ public class Bid : BaseEntity
         Comments = comments;
     }
 
+
+    public void Update(Money newAmount, string newComments)
+    {
+        if (newAmount is null) throw new ArgumentNullException(nameof(newAmount));
+        BidAmount = newAmount;
+        Comments = newComments;
+        Touch();                        
+    }
+
+    public void Revise(Money newAmount, string newComments)
+    {
+        if (newAmount is null) throw new ArgumentNullException(nameof(newAmount));
+        BidAmount = newAmount;
+        Comments = newComments;
+        Touch();                 
+    }
+
     public void UpdateStatus(Guid newStatusId) { StatusId = newStatusId; MarkUpdated(); }
 
     public void SetStatus(Guid statusId)
@@ -39,5 +56,6 @@ public class Bid : BaseEntity
         StatusId = statusId;
         Touch();          // ← bumps UpdatedAt via the protected helper
     }
+
 
 }
