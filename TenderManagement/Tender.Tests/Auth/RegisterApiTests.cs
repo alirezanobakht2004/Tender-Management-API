@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tender.Tests.Auth;
-
-using System.Net;
+﻿using System.Net;
 using System.Net.Http.Json;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
+
+namespace Tender.Tests.Auth;
 
 public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Program>>
 {
@@ -20,12 +14,17 @@ public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Progr
     public RegisterApiTests(WebApplicationFactory<Program> factory)
         => _client = factory.CreateClient();
 
+    // Helper to ensure unique emails per test
+    private string UniqueEmail(string prefix = "unit") =>
+        $"{prefix}+{Guid.NewGuid()}@test.com";
+
     [Fact]
     public async Task Register_Admin_Succeeds()
     {
+        var email = UniqueEmail("unitadmin1");
         var resp = await _client.PostAsJsonAsync("/api/auth/register", new
         {
-            email = "unitadmin1@test.com",
+            email,
             password = "TestPassword1!",
             role = "Admin"
         });
@@ -35,9 +34,10 @@ public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Progr
     [Fact]
     public async Task Register_Vendor_Succeeds()
     {
+        var email = UniqueEmail("unitvendor1");
         var resp = await _client.PostAsJsonAsync("/api/auth/register", new
         {
-            email = "unitvendor1@test.com",
+            email,
             password = "VendorPass1!",
             role = "Vendor"
         });
@@ -47,21 +47,21 @@ public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Progr
     [Fact]
     public async Task Register_Duplicate_Email_409()
     {
-        var email = "dupuser@test.com";
+        var email = UniqueEmail("dupuser");
+        // First registration
         await _client.PostAsJsonAsync("/api/auth/register", new
         {
             email,
             password = "DupPass1!",
             role = "Admin"
         });
-
+        // Second (duplicate)
         var resp2 = await _client.PostAsJsonAsync("/api/auth/register", new
         {
             email,
             password = "DupPass2!",
             role = "Admin"
         });
-
         resp2.StatusCode.Should().Be(HttpStatusCode.Conflict);
         var body = await resp2.Content.ReadFromJsonAsync<ProblemDetails>();
         body!.Title.Should().Be("Duplicate email");
@@ -98,9 +98,10 @@ public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Progr
     [Fact]
     public async Task Register_Short_Password_400()
     {
+        var email = UniqueEmail("shortpass");
         var resp = await _client.PostAsJsonAsync("/api/auth/register", new
         {
-            email = "shortpass@test.com",
+            email,
             password = "123",
             role = "Admin"
         });
@@ -112,10 +113,10 @@ public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Progr
     [Fact]
     public async Task Register_Missing_Role_400()
     {
-        // Role omitted
+        var email = UniqueEmail("missingrole");
         var payload = new
         {
-            email = "missingrole@test.com",
+            email,
             password = "MissingRolePass1!"
         };
         var resp = await _client.PostAsJsonAsync("/api/auth/register", payload);
@@ -127,9 +128,10 @@ public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Progr
     [Fact]
     public async Task Register_Invalid_Role_400()
     {
+        var email = UniqueEmail("badrole");
         var resp = await _client.PostAsJsonAsync("/api/auth/register", new
         {
-            email = "badrole@test.com",
+            email,
             password = "BadRolePass1!",
             role = "Manager"
         });
@@ -141,33 +143,38 @@ public sealed class RegisterApiTests : IClassFixture<WebApplicationFactory<Progr
     [Fact]
     public async Task Register_Email_With_Whitespace_201()
     {
+        // Unique email, with whitespace
+        var baseEmail = UniqueEmail("whitespace").Replace("@", "");
+        var email = "   " + baseEmail + "@test.com   ";
         var resp = await _client.PostAsJsonAsync("/api/auth/register", new
         {
-            email = "   whitespace@test.com   ",
+            email,
             password = "WhitespacePass1!",
             role = "Vendor"
         });
-        // Accept either 201 (if you trim) or 400 (if you don't)
+        // Accept either 201 (if you trim) or 400 (if you don't trim)
         resp.StatusCode.Should().Match(s => s == HttpStatusCode.Created || s == HttpStatusCode.BadRequest);
     }
 
     [Fact]
     public async Task Register_Email_Case_Sensitivity_409()
     {
-        var email = "casesens@test.com";
+        var baseEmail = UniqueEmail("casesens");
+        var email1 = baseEmail.ToLowerInvariant();
+        var email2 = baseEmail.ToUpperInvariant();
         await _client.PostAsJsonAsync("/api/auth/register", new
         {
-            email,
+            email = email1,
             password = "CasePass1!",
             role = "Vendor"
         });
         var resp = await _client.PostAsJsonAsync("/api/auth/register", new
         {
-            email = "CaseSens@Test.com",
+            email = email2,
             password = "CasePass2!",
             role = "Vendor"
         });
-        // If you handle case-insensitive, expect 409; otherwise, may allow (201)
+        // If you handle case-insensitive, expect 409; otherwise, may allow 201
         resp.StatusCode.Should().Match(s => s == HttpStatusCode.Conflict || s == HttpStatusCode.Created);
     }
 

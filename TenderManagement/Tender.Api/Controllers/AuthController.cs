@@ -58,16 +58,35 @@ public sealed class AuthController : ControllerBase
         [FromBody] LoginQuery qry,
         CancellationToken ct)
     {
-        var token = await _med.Send(qry, ct);
+        try
+        {
+            var token = await _med.Send(qry, ct);
 
-        if (token is null)
-            return Unauthorized(new ProblemDetails
+            if (token is null)
+                return Unauthorized(new ProblemDetails
+                {
+                    Title = "Invalid credentials",
+                    Status = StatusCodes.Status401Unauthorized,
+                    Type = "/problems/unauthorized"
+                });
+
+            return Ok(new { token });
+        }
+        catch (FluentValidation.ValidationException ex)
+        {
+            var errors = ex.Errors
+                .GroupBy(e => e.PropertyName)
+                .ToDictionary(
+                    g => g.Key,
+                    g => g.Select(e => e.ErrorMessage).ToArray()
+                );
+            return BadRequest(new ValidationProblemDetails(errors)
             {
-                Title = "Invalid credentials",   // ← Title (capital T)
-                Status = StatusCodes.Status401Unauthorized,
-                Type = "/problems/unauthorized"
+                Title = "Validation failed",
+                Status = StatusCodes.Status400BadRequest,
+                Type = "/problems/validation-error"
             });
-
-        return Ok(new { token });
+        }
     }
+
 }
