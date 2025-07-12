@@ -1,0 +1,1235 @@
+{
+	"info": {
+		"_postman_id": "0ceb96fa-8fd4-4511-8768-7ba9f80653eb",
+		"name": "Tender Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44428568",
+		"_collection_link": "https://alireza-nobakht2004-8429083.postman.co/workspace/alireza-nobakht2004's-Workspace~ac6091c6-6b11-44db-8200-47690c386927/collection/44428568-0ceb96fa-8fd4-4511-8768-7ba9f80653eb?action=share&source=collection_link&creator=44428568"
+	},
+	"item": [
+		{
+			"name": "Register As Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Admin is 201 Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"{{adminUserEmail}}\",\r\n    \"password\": \"{{adminUserPassword}}\",\r\n    \"role\": \"Admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/auth/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"role\": \"Admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 18:23:09 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Location",
+							"value": ""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"e074f85e-ac98-43f6-a852-2e8c8e436f9e\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login As Admin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200 OK\", () => pm.response.code === 200);\r",
+							"\r",
+							"const jwt = pm.response.json().token;    \r",
+							"pm.environment.set(\"adminUserToken\", jwt);\r",
+							"console.log(\"token set to:\", jwt);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"email\": \"{{adminUserEmail}}\", \r\n    \"password\": \"{{adminUserPassword}}\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/auth/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"email\": \"{{email}}\", \r\n    \"password\": \"{{password}}\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 21:25:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImUwNzRmODVlLWFjOTgtNDNmNi1hODUyLTJlOGM4ZTQzNmY5ZSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InRlc3RhZG1pbkBkZW1vLmlvIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3NTIxODYzMTgsImlzcyI6IlRlbmRlckFwaSIsImF1ZCI6IlRlbmRlckFwaUNsaWVudHMifQ.7leAWFZt3PHppRExlQcNC1TzVQ3uPPTPs4DsQSUcGTA\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Tenders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Tenders",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tenders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tenders"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 19:23:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"87fe2859-783b-4558-819a-81d11efb17c9\",\n        \"title\": \"Test Tender\",\n        \"description\": \"After GUID fix\",\n        \"deadlineUtc\": \"2025-07-14T15:59:00.2633333\",\n        \"category\": {\n            \"id\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\n            \"name\": \"Construction\"\n        },\n        \"status\": {\n            \"id\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\n            \"name\": \"Open\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Create New Tender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"201 Created\", () => pm.response.code === 201);\r",
+							"pm.environment.set(\"lastTenderId\",\r",
+							"    pm.response.headers.get(\"Location\").split(\"/\").pop());\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Copper cauuubling work\",\r\n  \"description\": \"100 m of Cat-6 cabling for floor 2\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\r\n  \"createdByUserId\": \"3ad1e8d9-0b7f-4c7d-91af-67c5c4e0b6f2\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create New Tender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Copper cabling work\",\r\n  \"description\": \"100 m of Cat-6 cabling for floor 2\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\r\n  \"createdByUserId\": \"3ad1e8d9-0b7f-4c7d-91af-67c5c4e0b6f2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tenders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tenders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 21:28:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:5238/api/Tenders/f28c4816-d962-45c2-ae7b-69c38c172796"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get Tender by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders/{{lastTenderId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders",
+						"{{lastTenderId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Tender by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tenders/{{tenderId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tenders",
+								"{{tenderId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 16:40:24 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"87fe2859-783b-4558-819a-81d11efb17c9\",\n    \"title\": \"Test Tender\",\n    \"description\": \"After GUID fix\",\n    \"deadlineUtc\": \"2025-07-14T15:59:00.2633333\",\n    \"category\": {\n        \"id\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\n        \"name\": \"Construction\"\n    },\n    \"status\": {\n        \"id\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\n        \"name\": \"Open\"\n    },\n    \"bids\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Tender",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"{{lastTenderId}}\",\r\n  \"title\": \"Copper cabling – UPDATED\",\r\n  \"description\": \"Revised scope: 150 m Cat-6, floor 2 & 3\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\":  \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders/{{lastTenderId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders",
+						"{{lastTenderId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Tender",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"{{tenderId}}\",\r\n  \"title\": \"Copper cabling – UPDATED\",\r\n  \"description\": \"Revised scope: 150 m Cat-6, floor 2 & 3\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\":  \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tenders/{{tenderId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tenders",
+								"{{tenderId}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 06:06:23 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete Tender",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders/{{lastTenderId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders",
+						"{{lastTenderId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Tender",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tenders/{{tenderId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tenders",
+								"{{tenderId}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 06:27:07 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Create New Vendor",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"201\", () => pm.response.code === 201);\r",
+							"pm.environment.set(\"lastVendorId\", pm.response.json().id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Aooo Corp\",\r\n  \"contactEmail\": \"sales@acme.io\",\r\n  \"phone\": \"+1-555-0100\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/vendors",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"vendors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create New Vendor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Aooo Corp\",\r\n  \"contactEmail\": \"sales@acme.io\",\r\n  \"phone\": \"+1-555-0100\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/vendors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vendors"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 06:48:51 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Location",
+							"value": "/api/vendors/ef92f267-f886-43c8-b1d1-cb905969ae67"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"ef92f267-f886-43c8-b1d1-cb905969ae67\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Vendors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/vendors",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"vendors"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Vendor",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/vendors",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vendors"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 07:00:59 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"ddbc6759-0bab-4285-94e4-35381b3d458b\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": null\n    },\n    {\n        \"id\": \"a249862c-f237-468c-8cf1-6f59b5dde51f\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": null\n    },\n    {\n        \"id\": \"b844a0a7-c189-4f35-ad93-7438d9546ef1\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": null\n    },\n    {\n        \"id\": \"baa2ee8f-a95a-450f-8e91-971f45604f6d\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": null\n    },\n    {\n        \"id\": \"ef92f267-f886-43c8-b1d1-cb905969ae67\",\n        \"name\": \"Aooo Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Vendors with summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/vendors?includeBidSummary=true",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"vendors"
+					],
+					"query": [
+						{
+							"key": "includeBidSummary",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Vendors with summary",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/vendors?includeBidSummary=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vendors"
+							],
+							"query": [
+								{
+									"key": "includeBidSummary",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 07:02:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"ddbc6759-0bab-4285-94e4-35381b3d458b\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": 0\n    },\n    {\n        \"id\": \"a249862c-f237-468c-8cf1-6f59b5dde51f\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": 0\n    },\n    {\n        \"id\": \"b844a0a7-c189-4f35-ad93-7438d9546ef1\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": 0\n    },\n    {\n        \"id\": \"baa2ee8f-a95a-450f-8e91-971f45604f6d\",\n        \"name\": \"ACME Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": 0\n    },\n    {\n        \"id\": \"ef92f267-f886-43c8-b1d1-cb905969ae67\",\n        \"name\": \"Aooo Corp\",\n        \"contactEmail\": \"sales@acme.io\",\n        \"phone\": \"+1-555-0100\",\n        \"bidCount\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Vendor by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/vendors/{{lastVendorId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"vendors",
+						"{{lastVendorId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Vendor by Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/vendors/{{lastVendorId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"vendors",
+								"{{lastVendorId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 07:22:30 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"ef92f267-f886-43c8-b1d1-cb905969ae67\",\n    \"name\": \"Aooo Corp\",\n    \"contactEmail\": \"sales@acme.io\",\n    \"phone\": \"+1-555-0100\",\n    \"bids\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Create New Tender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"201 Created\", () => pm.response.code === 201);\r",
+							"pm.environment.set(\"lastTenderId\",\r",
+							"    pm.response.headers.get(\"Location\").split(\"/\").pop());\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Copper cauuubling work\",\r\n  \"description\": \"100 m of Cat-6 cabling for floor 2\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\r\n  \"createdByUserId\": \"3ad1e8d9-0b7f-4c7d-91af-67c5c4e0b6f2\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/tenders",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"tenders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create New Tender",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Copper cabling work\",\r\n  \"description\": \"100 m of Cat-6 cabling for floor 2\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\r\n  \"createdByUserId\": \"3ad1e8d9-0b7f-4c7d-91af-67c5c4e0b6f2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/tenders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tenders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 21:28:20 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:5238/api/Tenders/f28c4816-d962-45c2-ae7b-69c38c172796"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Create Bid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"201\", () => pm.response.code === 201);\r",
+							"pm.environment.set(\"lastBidId\", pm.response.json().id);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"tenderId\": \"{{lastTenderId}}\",\r\n  \"vendorId\": \"{{lastVendorId}}\",\r\n  \"bidAmount\": 1350,\r\n  \"comments\": \"Initial offer\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/bids",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"bids"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Bid",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tenderId\": \"{{lastTenderId}}\",\r\n  \"vendorId\": \"{{lastVendorId}}\",\r\n  \"bidAmount\": 1500,\r\n  \"comments\": \"Initial offer\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/bids",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"bids"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 09:25:52 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Location",
+							"value": "/api/bids/33568e6c-5d25-44b1-817a-232ed6a01ce0"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"33568e6c-5d25-44b1-817a-232ed6a01ce0\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Bid",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"statusId\":\"D7122C1F-E7E8-4476-A2E2-19A2D906F6AF\"  \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/bids/{{lastBidId}}/status",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"bids",
+						"{{lastBidId}}",
+						"status"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Bid",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"statusId\":\"D7122C1F-E7E8-4476-A2E2-19A2D906F6AF\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/bids/{{lastBidId}}/status",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"bids",
+								"{{lastBidId}}",
+								"status"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 11 Jul 2025 10:32:44 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/categories",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Categories",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 20:52:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\n        \"name\": \"Construction\"\n    },\n    {\n        \"id\": \"54d06027-6965-456b-8b6e-1bc5e1e3c2af\",\n        \"name\": \"Consulting\"\n    },\n    {\n        \"id\": \"c6c2ae11-0b1a-4220-99eb-bc69f2c46d77\",\n        \"name\": \"IT\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Statuses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/statuses",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"statuses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Statuses",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/statuses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"statuses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 10 Jul 2025 20:52:41 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Kestrel"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"d7122c1f-e7e8-4476-a2e2-19a2d906f6af\",\n        \"name\": \"Approved\"\n    },\n    {\n        \"id\": \"8b6cc0d4-c1ce-4991-a5fb-84f7ef404ac1\",\n        \"name\": \"Closed\"\n    },\n    {\n        \"id\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\n        \"name\": \"Open\"\n    },\n    {\n        \"id\": \"41d9b6d9-fd37-4894-a63e-65892a0cfe19\",\n        \"name\": \"Pending\"\n    },\n    {\n        \"id\": \"e022521e-ec06-4cf2-83f8-61eb0cd8a0f2\",\n        \"name\": \"Rejected\"\n    }\n]"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{adminUserToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
