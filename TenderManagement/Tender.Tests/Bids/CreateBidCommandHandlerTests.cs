@@ -1,19 +1,17 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Tender.Domain.Entities;
 using Tender.Application.Commands.Bids;
+using Tender.Domain.ValueObjects;
+using Tender.Infrastructure.Persistence;
 using Tender.Infrastructure.Persistence.Repositories;
 using Tender.Tests.Util;
 using Xunit;
-using Tender.Domain.ValueObjects;
-using Tender.Infrastructure.Persistence;
 
 public sealed class CreateBidCommandHandlerTests
 {
-    public static readonly Guid Pending =
-       Guid.Parse("41d9b6d9-fd37-4894-a63e-65892a0cfe19");
+    private static readonly Guid Pending =
+        Guid.Parse("41d9b6d9-fd37-4894-a63e-65892a0cfe19");
 
     [Fact]
     public async Task Persists_bid_and_returns_id()
@@ -32,7 +30,8 @@ public sealed class CreateBidCommandHandlerTests
 
         var handler = new CreateBidCommandHandler(
             new TenderRepository(db),
-            new BidRepository(db),         
+            new BidRepository(db),
+            new StatusRepository(db),      
             new UnitOfWork(db));
 
         var id = await handler.Handle(
@@ -64,6 +63,7 @@ public sealed class CreateBidCommandHandlerTests
         var handler = new CreateBidCommandHandler(
             new TenderRepository(db),
             new BidRepository(db),
+            new StatusRepository(db),     
             new UnitOfWork(db));
 
         var idReturned = await handler.Handle(
@@ -75,5 +75,4 @@ public sealed class CreateBidCommandHandlerTests
         bid!.BidAmount.Value.Should().Be(1800);
         bid.Comments.Should().Be("revised");
     }
-
 }

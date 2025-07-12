@@ -10,6 +10,7 @@ public sealed record BidSummaryDto(
     Guid Id,
     decimal Amount,
     DateTime SubmittedAtUtc,
+    string Comments,
     VendorDto Vendor,
     StatusDto Status);
 

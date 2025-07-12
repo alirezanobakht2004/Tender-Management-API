@@ -14,6 +14,8 @@ public sealed class CreateBidCommandValidator : AbstractValidator<CreateBidComma
         RuleFor(b => b.TenderId).NotEmpty();
         RuleFor(b => b.VendorId).NotEmpty();
         RuleFor(b => b.BidAmount).GreaterThan(0);
-        RuleFor(b => b.Comments).MaximumLength(500);
+        RuleFor(b => b.Comments)
+            .MaximumLength(500)
+            .When(b => !string.IsNullOrWhiteSpace(b.Comments));
     }
 }

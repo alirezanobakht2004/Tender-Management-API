@@ -10,7 +10,7 @@ namespace Tender.Application.Commands.Bids;
 
 public sealed record UpdateBidStatusCommand(
         Guid BidId,
-        Guid NewStatusId) : IRequest;
+        Guid StatusId) : IRequest;
 
 
 public sealed class UpdateBidStatusCommandValidator
@@ -19,6 +19,6 @@ public sealed class UpdateBidStatusCommandValidator
     public UpdateBidStatusCommandValidator()
     {
         RuleFor(c => c.BidId).NotEmpty();
-        RuleFor(c => c.NewStatusId).NotEmpty();
+        RuleFor(c => c.StatusId).NotEmpty();
     }
 }

@@ -26,7 +26,7 @@ public sealed class UpdateBidStatusCommandHandler
         var bid = await _bids.GetByIdAsync(cmd.BidId, ct)
                   ?? throw new KeyNotFoundException("Bid not found");
 
-        bid.SetStatus(cmd.NewStatusId);      // domain method → raises concurrency token internally
+        bid.SetStatus(cmd.StatusId);      // domain method → raises concurrency token internally
         await _uow.SaveChangesAsync(ct);
     }
 }

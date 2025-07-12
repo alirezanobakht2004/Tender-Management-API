@@ -14,4 +14,9 @@ public sealed class StatusRepository : IStatusRepository
 
     public async Task<bool> ExistsAsync(Guid id, CancellationToken ct = default)
         => await _db.Statuses.AnyAsync(s => s.Id == id, ct);
+    public async Task<Guid?> GetIdByNameAsync(string name, CancellationToken ct = default)
+            => await _db.Statuses
+                        .Where(s => s.Name == name)
+                        .Select(s => (Guid?)s.Id)
+                        .FirstOrDefaultAsync(ct);
 }

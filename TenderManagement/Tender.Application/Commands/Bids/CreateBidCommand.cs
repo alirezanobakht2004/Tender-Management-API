@@ -11,4 +11,4 @@ public sealed record CreateBidCommand(
     Guid TenderId,
     Guid VendorId,
     decimal BidAmount,
-    string Comments) : IRequest<Guid>;
+    string? Comments) : IRequest<Guid>;

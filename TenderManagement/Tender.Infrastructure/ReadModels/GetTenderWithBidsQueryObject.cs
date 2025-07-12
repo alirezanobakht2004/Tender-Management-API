@@ -31,6 +31,7 @@ public sealed class GetTenderWithBidsQueryObject : IGetTenderWithBidsQuery
                 ts.Name             AS TenderStatusName,
                 b.Id                AS BidId,
                 b.BidAmount         AS BidAmount,
+                b.Comments          AS BidComments,
                 b.SubmittedAt       AS BidSubmittedAt,
                 v.Id                AS VendorId,
                 v.Name              AS VendorName,
@@ -75,8 +76,9 @@ public sealed class GetTenderWithBidsQueryObject : IGetTenderWithBidsQuery
                             (Guid)row.BidId,
                             (decimal)row.BidAmount,
                             (DateTime)row.BidSubmittedAt,
+                            (string)row.BidComments ?? string.Empty,
                             new VendorDto((Guid)row.VendorId, (string)row.VendorName),
-                            new StatusDto((Guid)row.TenderStatusId, (string)row.TenderStatusName)));
+                            new StatusDto((Guid)row.BidStatusId, (string)row.BidStatusName)));
                     }
                 }
             }, ct);
