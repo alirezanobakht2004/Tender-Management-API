@@ -556,7 +556,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Aooo Corp\",\r\n  \"contactEmail\": \"sales@acme.io\",\r\n  \"phone\": \"+1-555-0100\"\r\n}\r\n",
+					"raw": "{\r\n  \"name\": \"22222222222Aooo Corp\",\r\n  \"contactEmail\": \"sales@acme.io\",\r\n  \"phone\": \"+1-555-0100\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -843,7 +843,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"Copper cauuubling work\",\r\n  \"description\": \"100 m of Cat-6 cabling for floor 2\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\r\n  \"createdByUserId\": \"3ad1e8d9-0b7f-4c7d-91af-67c5c4e0b6f2\"\r\n}\r\n",
+					"raw": "{\r\n  \"title\": \"2000000000 cauuubpppppling work\",\r\n  \"description\": \"100 m of Cat-6 cabling for floor 2\",\r\n  \"deadlineUtc\": \"2025-07-20T00:00:00Z\",\r\n  \"categoryId\": \"e2ae4a2e-5a74-4f2a-b8ba-1b0bfc859101\",\r\n  \"statusId\": \"a1a3f451-a73b-484e-8fcb-0c21821f4d48\",\r\n  \"createdByUserId\": \"3ad1e8d9-0b7f-4c7d-91af-67c5c4e0b6f2\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -934,7 +934,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"tenderId\": \"{{lastTenderId}}\",\r\n  \"vendorId\": \"{{lastVendorId}}\",\r\n  \"bidAmount\": 1350,\r\n  \"comments\": \"Initial offer\"\r\n}\r\n",
+					"raw": "{\r\n  \"tenderId\": \"{{lastTenderId}}\",\r\n  \"vendorId\": \"{{lastVendorId}}\",\r\n  \"bidAmount\": 1800,\r\n  \"comments\": \"Initial offer\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

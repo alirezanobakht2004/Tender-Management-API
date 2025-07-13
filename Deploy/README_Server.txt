@@ -44,14 +44,14 @@ This guide walks you—step by step—through turning the **Deploy** folder into
 
    On success you’ll see:
    ```
-   ✅  Deployment complete. Test: http://localhost:8090/health
+   ✅  Deployment complete. Test: http://localhost:8090/api/health
    ```
 
 ---
 
 ## 4. Verify the deployment
 ```powershell
-curl.exe -i http://localhost:8090/health
+curl.exe -i http://localhost:8090/api/health
 ```
 - Should return **HTTP/1.1 200 OK** with body `OK`.
 
@@ -104,7 +104,7 @@ If you don’t need to change anything, skip this step entirely.
   - *Integrated:* ensure `IIS APPPOOL\TenderApi` exists as a SQL login.
   - *SQL Auth:* verify logins are enabled and credentials are correct.
 
-- **500 Errors on `/health` or API**
+- **500 Errors on `/api/health` or API**
   1. Ensure `<aspNetCore stdoutLogEnabled="true">` in `web.config`.
   2. Make sure `C:\inetpub\TenderApiSite\logs` exists:
      ```powershell
@@ -114,8 +114,8 @@ If you don’t need to change anything, skip this step entirely.
      ```
   3. Check `stdout_*.log` or Event Viewer → Application.
 
-- **404 on `/health`**
-  Call `http://<host>:<port>/health` (not `/api/health`). 
+- **404 on `/api/health`**
+  Call `http://<host>:<port>/api/health`. 
   To use `/api/health`, update controller route, republish, redeploy.
 
 - **File permissions errors**

@@ -1,8 +1,8 @@
-1) *********************** Publish the project, from the solution root, tun
+1) *********************** Publish the project, from the solution root(TenderManagement Folder), tun
 
-dotnet publish Tender.Api/Tender.Api.csproj -c Release -o Deploy/Site
+dotnet publish Tender.Api/Tender.Api.csproj -c Release -o ../Deploy/Site
 
-2) *********************** Make Deploy/Site/web.config:
+2) *********************** Find Deploy/Site/web.config and Make it:
 
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
@@ -37,7 +37,7 @@ dotnet publish Tender.Api/Tender.Api.csproj -c Release -o Deploy/Site
   </location>
 </configuration>
 
-3) *********************** Make Deploy/Site/appsettings.json:
+3) *********************** Find Deploy/Site/appsettings.json and Make it:
 
 {
   "ConnectionStrings": {
@@ -107,9 +107,9 @@ GO
 
 PRINT 'Database and login/user creation complete.';
 
-5) *********************** Generate an idempotent migration script, in Tender.Infrastructure folder, run:
+5) *********************** Generate an idempotent migration script, in TenderManagement/Tender.Infrastructure folder, run:
 
-dotnet ef migrations script --idempotent -o Deploy/Scripts/schema.sql
+dotnet ef migrations script --idempotent -o ../../Deploy/Scripts/schema.sql
 
 6) *********************** Create the PowerShell installer (Setup_IIS.ps1) in Deploy/Scripts/:
 
@@ -181,10 +181,10 @@ Write-Host "`nCreating DB/login…"
 sqlcmd -S $sqlInstance $authSwitch -d master -i $createLogin
 
 Write-Host "`nApplying migrations…"
-sqlcmd -S $sqlInstance $authSwitch -d master -i $schemaSql
+sqlcmd -S $sqlInstance $authSwitch -d TenderDb -i $schemaSql
 
 # Recycle and finish
 Restart-WebAppPool $appPoolName
-Write-Host "`n✅ Deployment complete. Test: http://localhost:$port/health"
+Write-Host "`n✅ Deployment complete. Test: http://localhost:$port/api/health"
 
 7) *********************** Now the Deploy Folder is ready!
