@@ -42,8 +42,16 @@ Additionally:
 - .NET SDK 8.0 (or higher)
 - SQL Server (any edition)
 - IIS (Windows)
+- .NET 8 Hosting Bundle installed.
 - PowerShell execution policy set to allow script execution
 - Optional: Postman for API testing
+
+## Deployment
+Full IIS‑based deployment steps are in **Deploy/Tender_Management_API_Deployment_Guide.md**. Follow that guide to:
+
+1. Copy the **Deploy/** folder to the server.
+2. Run **Deploy/Scripts/Setup_IIS.ps1** (elevated PowerShell).
+3. Ensure the application pool, site, and database are created.
 
 ## Running Tests
 After deployment (and once `TenderDb` is created with its tables):
@@ -55,17 +63,10 @@ After deployment (and once `TenderDb` is created with its tables):
    ```
 3. Run the xUnit tests:
    ```cmd
-   dotnet test Tender.Tests\Tender.Tests.csproj --no-build
+   dotnet test Tender.Tests\Tender.Tests.csproj
    ```
 
 _Postman_ provides a collection of happy-path API tests; see **Postman/PostmanCollection-README.md** for secure route guidance.
-
-## Deployment
-Full IIS‑based deployment steps are in **Deploy/Tender_Management_API_Deployment_Guide.md**. Follow that guide to:
-
-1. Copy the **Deploy/** folder to the server.
-2. Run **Deploy/Scripts/Setup_IIS.ps1** (elevated PowerShell).
-3. Ensure the application pool, site, and database are created.
 
 ## Documentation
 - **Developer Commands to make the Project Deployable.txt**
