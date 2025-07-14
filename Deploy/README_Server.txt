@@ -24,10 +24,21 @@ This guide walks you—step by step—through turning the **Deploy** folder into
 
 ## 3. Run the automated installer
 1. Open **PowerShell as Administrator**.
-2. Run:
-   ```powershell
+2. Run These Commands:
+   ```
+
+   Set-ExecutionPolicy Bypass -Scope Process
    cd C:\Deploy\Scripts
    .\Setup_IIS.ps1
+
+   Note: When you run Set-ExecutionPolicy Bypass -Scope Process, you’ll see a security prompt like this:
+	Execution Policy Change  
+	The execution policy helps protect you from scripts that you do not trust...  
+	Do you want to change the execution policy?  
+	[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
+
+   Press Y to continue (recommended).
+
    ```
 3. When prompted:
    - **SQL Server instance**: press **Enter** for default (`.`).
