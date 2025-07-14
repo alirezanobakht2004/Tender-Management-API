@@ -29,7 +29,7 @@ Additionally:
   - `TenderDb.bak` (optional SQL Server backup)
 
 - **Deploy/**
-  - `README_Server.txt` (deployment instructions for IIS)
+  - `Tender_Management_API_Deployment_Guide.md` (deployment instructions for IIS)
   - **Site/** (published API files)
   - **Scripts/** (SQL and PowerShell scripts)
 
@@ -61,7 +61,7 @@ After deployment (and once `TenderDb` is created with its tables):
 _Postman_ provides a collection of happy-path API tests; see **Postman/PostmanCollection-README.md** for secure route guidance.
 
 ## Deployment
-Full IIS‑based deployment steps are in **Deploy/README_Server.txt**. Follow that guide to:
+Full IIS‑based deployment steps are in **Deploy/Tender_Management_API_Deployment_Guide.md**. Follow that guide to:
 
 1. Copy the **Deploy/** folder to the server.
 2. Run **Deploy/Scripts/Setup_IIS.ps1** (elevated PowerShell).
